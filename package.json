@@ -1,0 +1,71 @@
+{
+	"name": "n8n-nodes-postify",
+	"version": "0.1.0",
+	"description": "n8n community node for Postify: draft and schedule social media posts across your connected channels, upload media, read analytics, and start workflows when posts publish or fail.",
+	"license": "MIT",
+	"homepage": "https://github.com/DevinoSolutions/n8n-nodes-postify#readme",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"postify",
+		"social-media",
+		"social-media-scheduler",
+		"scheduling",
+		"content-calendar",
+		"linkedin",
+		"instagram"
+	],
+	"author": {
+		"name": "Devino Solutions",
+		"email": "support@usepostify.com",
+		"url": "https://usepostify.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DevinoSolutions/n8n-nodes-postify.git"
+	},
+	"bugs": {
+		"url": "https://github.com/DevinoSolutions/n8n-nodes-postify/issues"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"test": "tsc -p tsconfig.test.json && vitest run",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo",
+		"!dist/**/*.map"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/PostifyApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Postify/Postify.node.js",
+			"dist/nodes/PostifyTrigger/PostifyTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "*",
+		"@types/node": "^22.0.0",
+		"eslint": "9.32.0",
+		"prettier": "3.6.2",
+		"release-it": "^21.1.0",
+		"typescript": "5.9.2",
+		"vitest": "4.1.11"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
